@@ -36,8 +36,10 @@ systemctl cat servername
 |--------|--------|
 | 快速测试开机自动脚本 | ✅ 使用 rc.local |
 | 正式服务、自定义应用守护| 🚫 推荐写 .service 文件 |
-| 修改网络参数等后期任务 |  ✅ 使用 rc.local|
-| 启动顺序要求明确 | 🚫 推荐用 systemd 单元 + After=/Before= 控制 |
+| 修改网络参数等后期任务 |  ✅ 使用 rc.local |
+| 启动顺序要求明确 | 🚫 推荐用 systemd 单元 + After=/Before= 控制 
+
+
 ###补充
 - 如何查看system启动控制的服务之间的依赖管理和前后顺序
 ```
