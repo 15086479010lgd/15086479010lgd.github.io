@@ -10,10 +10,10 @@
         let theme = localStorage.getItem("meek_theme") || "light";
         document.documentElement.setAttribute("data-color-mode", theme);
     </script>
-<meta name="description" content="rc-local
+<meta name="description" content="### **rc-local**
 rc-local.service 是一个 systemd 兼容层服务，用于在现代 Linux 系统中继续支持传统的 /etc/rc.local 脚本机制，使用户能在开机时运行自定义命令或脚本。">
 <meta property="og:title" content="systemcl启动项目和rc-local">
-<meta property="og:description" content="rc-local
+<meta property="og:description" content="### **rc-local**
 rc-local.service 是一个 systemd 兼容层服务，用于在现代 Linux 系统中继续支持传统的 /etc/rc.local 脚本机制，使用户能在开机时运行自定义命令或脚本。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://15086479010lgd.github.io/post/systemcl-qi-dong-xiang-mu-he-rc-local.html">
@@ -85,8 +85,8 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </div>
 </div>
     <div id="content">
-<div class="markdown-body" id="postBody"><p>rc-local<br>
-rc-local.service 是一个 systemd 兼容层服务，用于在现代 Linux 系统中继续支持传统的 /etc/rc.local 脚本机制，使用户能在开机时运行自定义命令或脚本。<br>
+<div class="markdown-body" id="postBody"><h3><strong>rc-local</strong></h3>
+<p>rc-local.service 是一个 systemd 兼容层服务，用于在现代 Linux 系统中继续支持传统的 /etc/rc.local 脚本机制，使用户能在开机时运行自定义命令或脚本。<br>
 需要配置文件拥有可执行权限，自定义的脚本或者命令也可以持久化在这个配置文件中</p>
 <pre class="notranslate"><code class="notranslate">chmod +x /etc/rc.d/rc.local
 
@@ -96,7 +96,71 @@ modprobe br_netfilter
 iptables -P FORWARD ACCEPT
 &lt;自定义的命令&gt;
 </code></pre>
-<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/f1206eb8-8d9a-4e58-922d-306ef5c8708c"><img width="456" alt="Image" src="https://github.com/user-attachments/assets/f1206eb8-8d9a-4e58-922d-306ef5c8708c" style="max-width: 100%;"></a></p></div>
+<h3><strong>启动项</strong></h3>
+<pre class="notranslate"><code class="notranslate">列出所有启动项
+systemctl list-unit-files
+停止
+systemctl stop
+自启动
+systemctl enable
+关闭自启动
+systemctl disable
+查看服务相关配置
+systemctl cat servername
+
+</code></pre>
+<h3>fstab服务和rc-local.service的对比和推荐使用</h3>
+<ul>
+<li>我们常用的 /etc/fstab文件来控制磁盘挂载，本质上也是用的一种systemcl控制的启动项服务。一般发生在比较早期<br>
+名称为local-fs.target或者remote-fs.target</li>
+<li>而rc-local.service中自定义的开机启动服务，一般发生在local-fs.target也就是fatab之后</li>
+</ul>
+<blockquote>
+<p>结论就是以后挂盘持久化，尽量都使用fstab服务来控制，避免在一些依赖挂载路径的服务在挂载之前执行<br>
+包括之后所有正式环境 需要开启 自启动的自定义脚本或者命令 都推荐单独写systemctl控制文件来明确启动顺序</p>
+</blockquote>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>适用情况</th>
+<th>推荐用法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>快速测试开机自动脚本</td>
+<td>✅ 使用 rc.local</td>
+</tr>
+<tr>
+<td>正式服务、自定义应用守护</td>
+<td>🚫 推荐写 .service 文件</td>
+</tr>
+<tr>
+<td>修改网络参数等后期任务</td>
+<td>✅ 使用 rc.local</td>
+</tr>
+<tr>
+<td>启动顺序要求明确</td>
+<td>🚫 推荐用 systemd 单元 + After=/Before= 控制</td>
+</tr>
+<tr>
+<td>###补充</td>
+<td></td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<ul>
+<li>如何查看system启动控制的服务之间的依赖管理和前后顺序</li>
+</ul>
+<pre class="notranslate"><code class="notranslate">systemctl list-dependencies serviceA.service
+
+systemctl show serviceA.service | grep -E 'After=|Before='
+
+##svg文件在浏览器中打开
+systemd-analyze plot &gt; boot.svg
+</code></pre>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/f1206eb8-8d9a-4e58-922d-306ef5c8708c"><img width="456" alt="Image" src="https://github.com/user-attachments/assets/f1206eb8-8d9a-4e58-922d-306ef5c8708c" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/64290542-d167-4a05-a8e6-04741e4668b7"><img src="https://github.com/user-attachments/assets/64290542-d167-4a05-a8e6-04741e4668b7" alt="Image" style="max-width: 100%;"></a></p></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
