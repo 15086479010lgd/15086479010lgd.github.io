@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         html {    
-            background: url('https://15086479010lgd.github.io/static/background.webp') no-repeat center center fixed;
+            background: url('https://i.postimg.cc/ZnMbY0qG/background.jpg') no-repeat center center fixed;
             background-size: cover;
         }
 
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
         style.innerHTML = `
 
         html {    
-            background: url('https://15086479010lgd.github.io/static/background.webp') no-repeat center center fixed;
+            background: url('https://i.postimg.cc/ZnMbY0qG/background.jpg') no-repeat center center fixed;
             background-size: cover;
         }
 
@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', function() {
         style.innerHTML = `
         
         html {    
-            background: url('https://15086479010lgd.github.io/static/background.webp') no-repeat center center fixed;
+            background: url('https://i.postimg.cc/ZnMbY0qG/background.jpg') no-repeat center center fixed;
             background-size: cover;
         }
 
