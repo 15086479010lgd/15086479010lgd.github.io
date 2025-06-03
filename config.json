@@ -1,6 +1,11 @@
 {
     "title":"Newmain Note",
     "subTitle":"Record Something useless  ",
-    "avatarUrl":"https://github.githubassets.com/favicons/favicon.svg",
+    "avatarUrl":"https://i.postimg.cc/DyJ7YX33/69d0da920f415f3070c20da781f2a23.png",
+    "startSite":"03/06/2025",
+    "primerCSS":"<link href='https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css' rel='stylesheet' />",
+    "needComment":1
+    "yearColorList":["#bc4c00", "#0969da", "#1f883d", "#A333D0"],
+    "commentLabelColor":"#006b75",
     "GMEEK_VERSION":"last"
 }
