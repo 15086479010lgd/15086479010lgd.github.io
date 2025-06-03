@@ -40,7 +40,8 @@ systemctl cat servername
 | 启动顺序要求明确 | 🚫 推荐用 systemd 单元 + After=/Before= 控制 
 
 
-###补充
+### 补充
+
 - 如何查看system启动控制的服务之间的依赖管理和前后顺序
 ```
 systemctl list-dependencies serviceA.service
