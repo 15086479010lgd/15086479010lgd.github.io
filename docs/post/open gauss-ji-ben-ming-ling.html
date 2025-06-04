@@ -7,24 +7,66 @@
     <link href='https://15086479010lgd.github.io/primer.css' rel='stylesheet' />
     <script src='https://15086479010lgd.github.io/plugins/RonanTheme.js'></script><script type='text/javascript'>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, 'clarity', 'script', 'pss6qz1yjn');</script><script async src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1948001195111241'crossorigin='anonymous'></script>
     <link rel="icon" href="https://i.postimg.cc/DyJ7YX33/69d0da920f415f3070c20da781f2a23.png">
-<meta name="description" content="**登录**
-```
+<meta name="description" content="### **登录**
+```shell
 psql -h 246.106.112.24 -p 5432 -U postgres -W 'ie4PqMrgd@qe9rpe'
+
+有些容器内的环境变量可以直接获取密码
+env |grep -i pass
 ```
+
+### **备份**
+```shell
+gs_dump -h 127.0.0.1 -p 5432 -U postgres -F d -f ./webserver_dir webserver
+```
+> • -h 127.0.0.1：明确使用 TCP 连接
+> • -p 5432：端口号（
+> • -U postgres：连接用户
+> • -F d：目录格式
+> • -f ./webserver_dir：备份目标目录
+> • webserver：按照数据库名来进行备份
+
+恢复命令
+```shell
+ gs_restore -h 127.0.0.1 -p 5432 -U postgres -d webserver_backup ./webserver_dir 
+```
+
+
 
 。">
 <meta property="og:title" content="open gauss基本命令">
-<meta property="og:description" content="**登录**
-```
+<meta property="og:description" content="### **登录**
+```shell
 psql -h 246.106.112.24 -p 5432 -U postgres -W 'ie4PqMrgd@qe9rpe'
+
+有些容器内的环境变量可以直接获取密码
+env |grep -i pass
 ```
+
+### **备份**
+```shell
+gs_dump -h 127.0.0.1 -p 5432 -U postgres -F d -f ./webserver_dir webserver
+```
+> • -h 127.0.0.1：明确使用 TCP 连接
+> • -p 5432：端口号（
+> • -U postgres：连接用户
+> • -F d：目录格式
+> • -f ./webserver_dir：备份目标目录
+> • webserver：按照数据库名来进行备份
+
+恢复命令
+```shell
+ gs_restore -h 127.0.0.1 -p 5432 -U postgres -d webserver_backup ./webserver_dir 
+```
+
+
 
 。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://15086479010lgd.github.io/post/open%20gauss-ji-ben-ming-ling.html">
 <meta property="og:image" content="https://i.postimg.cc/DyJ7YX33/69d0da920f415f3070c20da781f2a23.png">
 <title>open gauss基本命令</title>
-
+<link href="//unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
 
 
 </head>
@@ -90,9 +132,23 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </div>
 </div>
     <div id="content">
-<div class="markdown-body" id="postBody"><p><strong>登录</strong></p>
-<pre class="notranslate"><code class="notranslate">psql -h 246.106.112.24 -p 5432 -U postgres -W 'ie4PqMrgd@qe9rpe'
-</code></pre></div>
+<div class="markdown-body" id="postBody"><h3><strong>登录</strong></h3>
+<div class="highlight highlight-source-shell"><pre class="notranslate">psql -h 246.106.112.24 -p 5432 -U postgres -W <span class="pl-s"><span class="pl-pds">'</span>ie4PqMrgd@qe9rpe<span class="pl-pds">'</span></span>
+
+有些容器内的环境变量可以直接获取密码
+env <span class="pl-k">|</span>grep -i pass</pre></div>
+<h3><strong>备份</strong></h3>
+<div class="highlight highlight-source-shell"><pre class="notranslate">gs_dump -h 127.0.0.1 -p 5432 -U postgres -F d -f ./webserver_dir webserver</pre></div>
+<blockquote>
+<p>• -h 127.0.0.1：明确使用 TCP 连接<br>
+• -p 5432：端口号（<br>
+• -U postgres：连接用户<br>
+• -F d：目录格式<br>
+• -f ./webserver_dir：备份目标目录<br>
+• webserver：按照数据库名来进行备份</p>
+</blockquote>
+<p>恢复命令</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate"> gs_restore -h 127.0.0.1 -p 5432 -U postgres -d webserver_backup ./webserver_dir </pre></div></div>
 <div style="font-size:small;margin-top:8px;float:right;">转载文章请注明出处，谢谢！</div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
