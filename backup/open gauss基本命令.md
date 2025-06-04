@@ -22,5 +22,18 @@ gs_dump -h 127.0.0.1 -p 5432 -U postgres -F d -f ./webserver_dir webserver
  gs_restore -h 127.0.0.1 -p 5432 -U postgres -d webserver_backup ./webserver_dir 
 ```
 
+###  操作数据库
+``` shell
+##看数据库列表
+\l
+##切换数据库
+\c databasename
+##删除数据库
+drop databasename
+##创建数据库
+create database dbtest
+```
+
+
 
 

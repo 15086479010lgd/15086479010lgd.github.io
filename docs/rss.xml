@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Newmain Note</title><link>https://15086479010lgd.github.io</link><description>Record Something useless</description><copyright>Newmain Note</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://i.postimg.cc/DyJ7YX33/69d0da920f415f3070c20da781f2a23.png</url><title>avatar</title><link>https://15086479010lgd.github.io</link></image><lastBuildDate>Wed, 04 Jun 2025 08:01:27 +0000</lastBuildDate><managingEditor>Newmain Note</managingEditor><ttl>60</ttl><webMaster>Newmain Note</webMaster><item><title>Learning English</title><link>https://15086479010lgd.github.io/post/Learning%20English.html</link><description>| Word | Translation  |  Example |
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Newmain Note</title><link>https://15086479010lgd.github.io</link><description>Record Something useless</description><copyright>Newmain Note</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://i.postimg.cc/DyJ7YX33/69d0da920f415f3070c20da781f2a23.png</url><title>avatar</title><link>https://15086479010lgd.github.io</link></image><lastBuildDate>Wed, 04 Jun 2025 08:21:39 +0000</lastBuildDate><managingEditor>Newmain Note</managingEditor><ttl>60</ttl><webMaster>Newmain Note</webMaster><item><title>Learning English</title><link>https://15086479010lgd.github.io/post/Learning%20English.html</link><description>| Word | Translation  |  Example |
 |--------|--------|--------|
 | fork | n. 刀叉 分支 | fork repository|
 | branch | n, 分支 旁系 | a part of something larger |
@@ -26,6 +26,19 @@ gs_dump -h 127.0.0.1 -p 5432 -U postgres -F d -f ./webserver_dir webserver
 ```shell
  gs_restore -h 127.0.0.1 -p 5432 -U postgres -d webserver_backup ./webserver_dir 
 ```
+
+###  操作数据库
+``` shell
+##看数据库列表
+\l
+##切换数据库
+\c databasename
+##删除数据库
+drop databasename
+##创建数据库
+create database dbtest
+```
+
 
 
 

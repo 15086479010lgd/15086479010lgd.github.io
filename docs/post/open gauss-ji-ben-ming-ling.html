@@ -31,6 +31,19 @@ gs_dump -h 127.0.0.1 -p 5432 -U postgres -F d -f ./webserver_dir webserver
  gs_restore -h 127.0.0.1 -p 5432 -U postgres -d webserver_backup ./webserver_dir 
 ```
 
+###  操作数据库
+``` shell
+##看数据库列表
+\l
+##切换数据库
+\c databasename
+##删除数据库
+drop databasename
+##创建数据库
+create database dbtest
+```
+
+
 
 
 。">
@@ -58,6 +71,19 @@ gs_dump -h 127.0.0.1 -p 5432 -U postgres -F d -f ./webserver_dir webserver
 ```shell
  gs_restore -h 127.0.0.1 -p 5432 -U postgres -d webserver_backup ./webserver_dir 
 ```
+
+###  操作数据库
+``` shell
+##看数据库列表
+\l
+##切换数据库
+\c databasename
+##删除数据库
+drop databasename
+##创建数据库
+create database dbtest
+```
+
 
 
 
@@ -148,7 +174,16 @@ env <span class="pl-k">|</span>grep -i pass</pre></div>
 • webserver：按照数据库名来进行备份</p>
 </blockquote>
 <p>恢复命令</p>
-<div class="highlight highlight-source-shell"><pre class="notranslate"> gs_restore -h 127.0.0.1 -p 5432 -U postgres -d webserver_backup ./webserver_dir </pre></div></div>
+<div class="highlight highlight-source-shell"><pre class="notranslate"> gs_restore -h 127.0.0.1 -p 5432 -U postgres -d webserver_backup ./webserver_dir </pre></div>
+<h3>操作数据库</h3>
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span>#看数据库列表</span>
+<span class="pl-cce">\l</span>
+<span class="pl-c"><span class="pl-c">#</span>#切换数据库</span>
+<span class="pl-cce">\c</span> databasename
+<span class="pl-c"><span class="pl-c">#</span>#删除数据库</span>
+drop databasename
+<span class="pl-c"><span class="pl-c">#</span>#创建数据库</span>
+create database dbtest</pre></div></div>
 <div style="font-size:small;margin-top:8px;float:right;">转载文章请注明出处，谢谢！</div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
